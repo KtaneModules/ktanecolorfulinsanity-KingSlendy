@@ -1,1 +1,1 @@
-#[ModKit Wiki](../../wiki)
+Colorful Insanity regular module for KTaNE
