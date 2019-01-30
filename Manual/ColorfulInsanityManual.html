@@ -18,15 +18,12 @@
 			
 			function setRules(rnd) {
 				var nowPatterns = rnd.shuffleFisherYates(Array.from(Array(25)).map((x, y) => y));
-				console.log(nowPatterns);
 				var colorNames = [ "", "R", "O", "Y", "G", "C", "A", "B", "M", "P" ];
 				var nowColors = [];
 				
 				for (var i = 0; i < 9; i++) {
 					nowColors.push(Array.from(Array(9)).map((x, y) => uniqueString([ colorNames[rnd.nextMax(10)], colorNames[rnd.nextMax(10)], colorNames[rnd.nextMax(10)] ].join(""))));
 				}
-				
-				console.log(nowColors);
 				
 				for (var i = 0; i < 9; i++) {
 					nowColors[i][i] = "X";
@@ -96,8 +93,8 @@
                         <img src = "img/Component/ColorfulInsanity.svg" class = "diagram">
                         <h2>On the Subject of Colorful Insanity</h2>
                         <p class = "flavour-text">The madness can be even worse.</p>
-                        <p>There’s a set of 35 buttons on the module.</br>
-						You need to press the correct buttons in order to disarm the module.</br>
+                        <p>There’s a set of 35 buttons on the module.<br>
+						You need to press the correct buttons in order to disarm the module.<br>
 						First, you need to find 2 pairs of buttons:</p>
 						
 						<ol>
@@ -105,12 +102,12 @@
 							<li>2 buttons that are exactly the same; they have the same pattern and colors.</li>
 						</ol>
 						
-						<p>With the pattern of the first pair, you can determine which patterns for the buttons are allowed for press.</br>
+						<p>With the pattern of the first pair, you can determine which patterns for the buttons are allowed for press.<br>
 						On <span class = "bold">Table 1</span>; locate where is your pattern, and the allowed patterns will be the ones that are directly adjacent to it. This means up/left/right/down.</p>						
                     
-						<p>Use <span class = "bold">Table 2</span> to determine the allowed colors, based on the colors of the second pair.</br>
-						The color for the columns is the one with black color on <span class = "bold">Table 1</span>.</br>
-						The color for the rows is the other color.</br></p>
+						<p>Use <span class = "bold">Table 2</span> to determine the allowed colors, based on the colors of the second pair.<br>
+						The color for the columns is the one with black color on <span class = "bold">Table 1</span>.<br>
+						The color for the rows is the other color.<br></p>
 
 						<h3>Color’s reference</h3>
 
@@ -128,7 +125,7 @@
 							<li><span class = "italic">Blank</span>: Any color</li>
 						</ul>
 
-						<p>You need to press the buttons that have both any of the allowed patterns <span class = "bold">AND</span> any of the allowed colors.</br>
+						<p>You need to press the buttons that have both any of the allowed patterns <span class = "bold">AND</span> any of the allowed colors.<br>
 						If none of the buttons match, press the first and the second pair.</p>
 					</div>
 					

@@ -20,9 +20,12 @@ MonoBehaviour:
     Camera Zoom mod is not required, but it is recommended
 
 
-    Manual HTML: 8Link soon)
+    moduleID: ColorfulInsanity
 
-    Manual PDF: (Link soon)'
-  version: 1.0
+
+    Manual HTML: https://ktane.timwi.de/HTML/Colorful%20Insanity.html
+
+    Manual PDF: https://ktane.timwi.de/PDF/Colorful%20Insanity.pdf'
+  version: 1.01
   outputFolder: Build
   previewImage: {fileID: 2800000, guid: 9a245e596cf2da646ac367daf006445b, type: 3}
