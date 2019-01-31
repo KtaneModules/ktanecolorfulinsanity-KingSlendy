@@ -196,5 +196,15 @@ namespace CodeExtension {
 
             return string.Format("{0}{1}", (char)(getCol + 65), getRow + 1);
         }
+
+        /// <summary>
+        /// Returns the given array into an object array.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="toObjArr"></param>
+        /// <returns></returns>
+        public static object[] ToObjectArray<T>(this IEnumerable<T> toObjArr) {
+            return toObjArr.Select(x => (object)x).ToArray();
+        }
 	}
 }
