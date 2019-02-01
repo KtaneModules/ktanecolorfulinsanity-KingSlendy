@@ -99,15 +99,15 @@ public class scr_colorfulInsanity : MonoBehaviour {
         Debug.LogFormat(@"[Colorful Insanity #{0}] 2nd pair is in: {1}", moduleId, specialButtons.Take(2).Select(x => x.ToCoord(7)).ToStringElements(", "));
 
         checkSame[] getSame = {
-            ((w, x, y, z) => Enumerable.Range(0, y).Any(a => (new[] {
+            ((w, x, y, z) => Enumerable.Range(0, y).Any(a => new[] {
                 w[a],
                 x[0, a],
                 x[1, a]
-            }.SequenceEqual(z)) || (new[] {
+            }.SequenceEqual(z) || new[] {
                 w[a],
                 x[1, a],
                 x[0, a]
-            }.SequenceEqual(z)))),
+            }.SequenceEqual(z))),
             ((w, x, y, z) => Enumerable.Range(0, y).Any(a => new[] {
                 w[specialButtons[a]],
                 x[0, specialButtons[a]],
