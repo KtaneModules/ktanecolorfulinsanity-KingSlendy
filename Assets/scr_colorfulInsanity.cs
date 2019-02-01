@@ -98,32 +98,39 @@ public class scr_colorfulInsanity : MonoBehaviour {
         Debug.LogFormat(@"[Colorful Insanity #{0}] 1st pair is in: {1}", moduleId, specialButtons.Skip(2).Select(x => x.ToCoord(7)).ToStringElements(", "));
         Debug.LogFormat(@"[Colorful Insanity #{0}] 2nd pair is in: {1}", moduleId, specialButtons.Take(2).Select(x => x.ToCoord(7)).ToStringElements(", "));
 
-        checkSame getSame = ((w, x, y, z) => Enumerable.Range(0, y).Any(a => (new[] {
-            w[a],
-            x[0, a],
-            x[1, a]
-        }.SequenceEqual(z)) || (new[] {
-            w[a],
-            x[1, a],
-            x[0, a]
-        }.SequenceEqual(z))));
+        checkSame[] getSame = {
+            ((w, x, y, z) => Enumerable.Range(0, y).Any(a => (new[] {
+                w[a],
+                x[0, a],
+                x[1, a]
+            }.SequenceEqual(z)) || (new[] {
+                w[a],
+                x[1, a],
+                x[0, a]
+            }.SequenceEqual(z)))),
+            ((w, x, y, z) => Enumerable.Range(0, y).Any(a => new[] {
+                w[specialButtons[a]],
+                x[0, specialButtons[a]],
+                x[1, specialButtons[a]]
+            }.SequenceEqual(z) || new[] {
+                w[specialButtons[a]],
+                x[1, specialButtons[a]],
+                x[0, specialButtons[a]]
+            }.SequenceEqual(z)))
+        };
 
         for (int i = 0; i < ModuleButtons.Length; i++) {
             if (!specialButtons.Contains(i)) {
                 do {
                     checkPatterns = GetPatterns();
-                } while (getSame(chosenPatterns, chosenColors, i, checkPatterns) || Enumerable.Range(0, specialButtons.Length).Any(x => new[] {
-                    chosenPatterns[specialButtons[x]],
-                    chosenColors[0, specialButtons[x]],
-                    chosenColors[1, specialButtons[x]]
-                }.SequenceEqual(checkPatterns)));
+                } while (getSame[0](chosenPatterns, chosenColors, i, checkPatterns) || getSame[1](chosenPatterns, chosenColors, specialButtons.Length, checkPatterns));
 
                 SetPatterns(i, checkPatterns);
             }
 
             AssignPattern(i);
             int j = i;
-            ModuleButtons[i].OnInteract += delegate () {
+            ModuleButtons[i].OnInteract += delegate() {
                 OnButtonPress(j);
 
                 return false;
