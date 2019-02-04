@@ -63,7 +63,7 @@ public class scr_colorfulInsanity : MonoBehaviour {
                     colorLetters[rnd.Next(10)],
                     colorLetters[rnd.Next(10)],
                     colorLetters[rnd.Next(10)]
-                }.Distinct().ToArray().ToStringElements("");
+                }.Distinct().ToStringElements("");
             }
         }
 
@@ -82,11 +82,15 @@ public class scr_colorfulInsanity : MonoBehaviour {
 
         do {
             checkPatterns = GetPatterns();
-        } while (Enumerable.Range(0, 2).Any(x => new[] {
-            chosenPatterns[specialButtons[x]],
-            chosenColors[0, specialButtons[x]],
-            chosenColors[1, specialButtons[x]]
-        }.SequenceEqual(checkPatterns)));
+        } while (new[] {
+            chosenPatterns[specialButtons[0]],
+            chosenColors[0, specialButtons[0]],
+            chosenColors[1, specialButtons[0]]
+        }.SequenceEqual(checkPatterns) || new[] {
+            chosenPatterns[specialButtons[0]],
+            chosenColors[1, specialButtons[0]],
+            chosenColors[0, specialButtons[0]]
+        }.SequenceEqual(checkPatterns));
 
         SetPatterns(specialButtons[2], checkPatterns);
         SetPatterns(specialButtons[3], new[] {
