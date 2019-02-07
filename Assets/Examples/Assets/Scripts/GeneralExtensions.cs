@@ -48,17 +48,6 @@ public static class GeneralExtensions
 		return formatedTime;
 	}
 
-	public static string Join<T>(this IEnumerable<T> values, string separator = " ")
-	{
-		StringBuilder stringBuilder = new StringBuilder();
-		IEnumerator<T> enumerator = values.GetEnumerator();
-		if (enumerator.MoveNext()) stringBuilder.Append(enumerator.Current); else return "";
-
-		while (enumerator.MoveNext()) stringBuilder.Append(separator).Append(enumerator.Current);
-
-		return stringBuilder.ToString();
-	}
-
 	//String wrapping code from http://www.java2s.com/Code/CSharp/Data-Types/ForcesthestringtowordwrapsothateachlinedoesntexceedthemaxLineLength.htm
 	public static string Wrap(this string str, int maxLength)
 	{
