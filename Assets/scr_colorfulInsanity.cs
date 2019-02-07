@@ -63,7 +63,7 @@ public class scr_colorfulInsanity : MonoBehaviour {
                     colorLetters[rnd.Next(10)],
                     colorLetters[rnd.Next(10)],
                     colorLetters[rnd.Next(10)]
-                }.Distinct().ToStringElements("");
+                }.Distinct().Join("");
             }
         }
 
@@ -99,8 +99,8 @@ public class scr_colorfulInsanity : MonoBehaviour {
             chosenColors[0, specialButtons[2]]
         });
 
-        Debug.LogFormat(@"[Colorful Insanity #{0}] 1st pair is in: {1}", moduleId, specialButtons.Skip(2).Select(x => x.ToCoord(7)).ToStringElements(", "));
-        Debug.LogFormat(@"[Colorful Insanity #{0}] 2nd pair is in: {1}", moduleId, specialButtons.Take(2).Select(x => x.ToCoord(7)).ToStringElements(", "));
+        Debug.LogFormat(@"[Colorful Insanity #{0}] 1st pair is in: {1}", moduleId, specialButtons.Skip(2).Select(x => x.ToCoord(7)).Join(", "));
+        Debug.LogFormat(@"[Colorful Insanity #{0}] 2nd pair is in: {1}", moduleId, specialButtons.Take(2).Select(x => x.ToCoord(7)).Join(", "));
 
         checkSame[] getSame = {
             ((w, x, y, z) => Enumerable.Range(0, y).Any(a => (new[] {

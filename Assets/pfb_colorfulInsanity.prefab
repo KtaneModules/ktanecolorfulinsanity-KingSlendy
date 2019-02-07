@@ -2130,8 +2130,8 @@ GameObject:
   - component: {fileID: 114653691060002012}
   - component: {fileID: 114155037255787190}
   - component: {fileID: 114143749828111612}
-  - component: {fileID: 114495261601256974}
   - component: {fileID: 114233911081069840}
+  - component: {fileID: 114495261601256974}
   m_Layer: 0
   m_Name: pfb_colorfulInsanity
   m_TagString: Untagged

@@ -17,16 +17,6 @@ namespace CodeExtension {
 		}
 
 		/// <summary>
-		/// Converts the given elements to string.
-		/// </summary>
-		/// <returns>The array.</returns>
-		/// <param name="toLog">To log.</param>
-		/// <param name="logSep">Log sep.</param>
-		public static string ToStringElements<T>(this IEnumerable<T> toLog, string logSep) {
-			return string.Join(logSep, toLog.ToStringArray());
-		}
-
-		/// <summary>
 		/// Converts the given elements to string separated by rows and columns.
 		/// </summary>
 		/// <returns>The array.</returns>
@@ -34,14 +24,14 @@ namespace CodeExtension {
 		/// <param name="logSep">Log sep.</param>
 		/// <param name="rowLen">Row length.</param>
 		/// <param name="colLen">Col length.</param>
-		public static string ToStringElements<T>(this IEnumerable<T> toLog, string logSep, int rowLen, int colLen) {
+		public static string JoinGrid<T>(this IEnumerable<T> toLog, string logSep, int rowLen, int colLen) {
 			var fullLog = new string[rowLen];
 
 			for (int i = 0; i < fullLog.Length; i++) {
-				fullLog[i] = string.Format("[{0}] {1}\n", i, toLog.Slice(colLen * i, colLen).ToStringElements(logSep));
+				fullLog[i] = string.Format("[{0}] {1}\n", i, toLog.Slice(colLen * i, colLen).Join(logSep));
 			}
 
-			return string.Join("", fullLog);
+			return fullLog.Join("");
 		}
 
 		/// <summary>
