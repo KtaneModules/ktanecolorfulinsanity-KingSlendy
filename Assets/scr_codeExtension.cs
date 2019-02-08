@@ -206,4 +206,26 @@ public static class scr_codeExtension {
     public static object[] ToObjectArray<T>(this IEnumerable<T> toObjArr) {
         return toObjArr.Select(x => (object)x).ToArray();
     }
+
+    /// <summary>
+    /// Gets a row of the given 2D array.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="matrix"></param>
+    /// <param name="rowNumber"></param>
+    /// <returns></returns>
+    public static T[] GetRow<T>(this T[,] nowArray, int rowNumber) {
+        return Enumerable.Range(0, nowArray.GetLength(1)).Select(x => nowArray[rowNumber, x]).ToArray();
+    }
+
+    /// <summary>
+    /// Gets a column of the given 2D array.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="matrix"></param>
+    /// <param name="columnNumber"></param>
+    /// <returns></returns>
+    public static T[] GetColumn<T>(this T[,] nowArray, int columnNumber) {
+        return Enumerable.Range(0, nowArray.GetLength(0)).Select(x => nowArray[x, columnNumber]).ToArray();
+    }
 }
