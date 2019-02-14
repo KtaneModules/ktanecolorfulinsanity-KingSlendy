@@ -194,7 +194,7 @@ public static class scr_codeExtension {
         var getRow = nowPos / colLength;
         var getCol = nowPos % colLength;
 
-        return string.Format("{0}{1}", (char)(getCol + 65), getRow + 1);
+        return string.Format("{0}{1}", (char)(getCol + 'A'), getRow + 1);
     }
 
     /// <summary>
@@ -227,5 +227,16 @@ public static class scr_codeExtension {
     /// <returns></returns>
     public static T[] GetColumn<T>(this T[,] nowArray, int columnNumber) {
         return Enumerable.Range(0, nowArray.GetLength(0)).Select(x => nowArray[x, columnNumber]).ToArray();
+    }
+
+    /// <summary>
+    /// Reverses the given string.
+    /// </summary>
+    /// <param name="strRev"></param>
+    /// <returns></returns>
+    public static string StringReverse(this string strRev) {
+        var strArray = strRev.ToStringArray();
+        Array.Reverse(strArray);
+        return strArray.Join("");
     }
 }
